@@ -1,4 +1,6 @@
 <script lang="ts">
+import SelecionarIngredientes from "./SelecionarIngredientes.vue";
+
 export default {
     // usado para disponibilizar informações do javascripot para serem utilizadas no template do componente.
     data() {
@@ -6,6 +8,7 @@ export default {
             ingredientes: ["Alho", "Manteiga", "Orégano", "Isadora"],
         };
     },
+    components: { SelecionarIngredientes },
 };
 </script>
 
@@ -24,13 +27,14 @@ export default {
                     <!-- interpolação -->
                 </li>
             </ul>
-            
-             <!-- diretiva else pra exibir ou não informações -->
+
+            <!-- diretiva else pra exibir ou não informações -->
             <p v-else class="paragrafo lista-vazia">
                 <img src="../assets/images/icones/lista-vazia.svg" alt="" />Sua
                 lista está vazia, selecione ingredientes para iniciar.
             </p>
         </section>
+        <SelecionarIngredientes />
     </main>
 </template>
 
