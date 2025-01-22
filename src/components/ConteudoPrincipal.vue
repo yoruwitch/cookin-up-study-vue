@@ -1,5 +1,6 @@
 <script lang="ts">
 import SelecionarIngredientes from "./SelecionarIngredientes.vue";
+import SuaLista from "./SuaLista.vue";
 
 export default {
     // usado para disponibilizar informações do javascripot para serem utilizadas no template do componente.
@@ -8,31 +9,14 @@ export default {
             ingredientes: ["Alho", "Manteiga", "Orégano", "Isadora"],
         };
     },
-    components: { SelecionarIngredientes },
+    components: { SelecionarIngredientes, SuaLista },
 };
 </script>
 
 <template>
     <main class="conteudo-principal">
         <section>
-            <span class="subtitulo-lg sua-lista-texto"> Sua Lista: </span>
-            <!-- diretiva if pra exibir ou não informações -->
-            <ul v-if="ingredientes.length" class="ingredientes-sua-lista">
-                <li
-                    v-for="ingrediente in ingredientes"
-                    v-bind:key="ingrediente"
-                    class="ingrediente"
-                >
-                    {{ ingrediente }}
-                    <!-- interpolação -->
-                </li>
-            </ul>
-
-            <!-- diretiva else pra exibir ou não informações -->
-            <p v-else class="paragrafo lista-vazia">
-                <img src="../assets/images/icones/lista-vazia.svg" alt="" />Sua
-                lista está vazia, selecione ingredientes para iniciar.
-            </p>
+            <SuaLista :ingredientes="ingredientes" />
         </section>
         <SelecionarIngredientes />
     </main>
@@ -49,43 +33,6 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 5rem;
-}
-
-.sua-lista-texto {
-    color: var(--coral, #f0633c);
-    display: block;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.ingredientes-sua-lista {
-    display: flex;
-    justify-content: center;
-    gap: 1rem 1.5rem;
-    flex-wrap: wrap;
-}
-
-.ingrediente {
-    display: inline-block;
-    border-radius: 0.5rem;
-    min-width: 4.25rem;
-    padding: 0.5rem;
-    text-align: center;
-    transition: 0.2s;
-    color: var(--creme, #fffaf3);
-    background: var(--coral, #f0633c);
-    font-weight: 700;
-}
-
-.lista-vazia {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-
-    color: var(--coral, #f0633c);
-    text-align: center;
 }
 
 @media only screen and (max-width: 1300px) {
