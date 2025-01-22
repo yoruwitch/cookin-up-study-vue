@@ -6,10 +6,19 @@ export default {
     // usado para disponibilizar informações do javascripot para serem utilizadas no template do componente.
     data() {
         return {
-            ingredientes: ["Alho", "Manteiga", "Orégano", "Isadora"],
+            ingredientes: [] as string[],
         };
     },
     components: { SelecionarIngredientes, SuaLista },
+    methods: {
+        adicionarIngrediente (ingrediente: string) {
+            this.ingredientes.push(ingrediente)
+        },
+       removerIngrediente(ingrediente: string) {
+            this.ingredientes = this.ingredientes.filter(iLista => ingrediente !== iLista);
+},
+
+    }
 };
 </script>
 
@@ -18,7 +27,12 @@ export default {
         <section>
             <SuaLista :ingredientes="ingredientes" />
         </section>
-        <SelecionarIngredientes />
+        <SelecionarIngredientes
+        @adicionar-ingrediente="adicionarIngrediente"
+        @remover-ingrediente="removerIngrediente"
+        />
+
+        
     </main>
 </template>
 

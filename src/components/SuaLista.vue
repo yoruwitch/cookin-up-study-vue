@@ -6,7 +6,7 @@ export default {
     components: { Tag },
     props: {
         ingredientes: {
-            type: Array as  PropType<string[]>,
+            type: Array as PropType<string[]>,
             required: true,
         },
     },
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-    <section >
+    <section>
         <span class="subtitulo-lg sua-lista-texto"> Sua Lista: </span>
         <!-- diretiva if pra exibir ou não informações -->
         <ul v-if="ingredientes.length" class="ingredientes-sua-lista">
