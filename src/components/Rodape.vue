@@ -2,7 +2,7 @@
   <footer class="rodape paragrafo">
     <p>
       Desenvolvido por 
-      <a href="https://github.com/yoruwitch">Evelyn Fernandes</a> 
+      <a href="https://github.com/yoruwitch" target="_blank">Evelyn Fernandes</a> 
       & Alura | 2025 - Projeto fictício sem fins comerciais.
     </p>
   </footer>
